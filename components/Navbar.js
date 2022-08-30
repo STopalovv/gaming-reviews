@@ -15,8 +15,9 @@ export default function Navbar() {
         <ul>
           <li><Link href="/"><a>Home</a></Link></li>
           <li><Link href="/guides"><a>Reviews</a></Link></li>
-          <li onClick={login} className='btn'>Login/Signup</li>
-          <li onClick={logout} className='btn'>Logout</li>
+          {!user && <li onClick={login} className='btn'>Login/Signup</li>}
+          {user && <li>Hello, {user.user_metadata.full_name}</li>}
+          {user && <li onClick={logout} className='btn'>Logout</li>}
         </ul>
       </nav>
       <div className="banner">
