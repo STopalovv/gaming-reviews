@@ -10,6 +10,7 @@ const AuthContext = createContext({
 
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [authReady, setAuthReady] = useState(false)
 
     useEffect(() => {
         netflifyIdentity.on('login', (user) => {
@@ -21,6 +22,12 @@ export const AuthContextProvider = ({ children }) => {
         netflifyIdentity.on('logout', () => {
             setUser(null)
             console.log('Logout event');
+        })
+
+        netflifyIdentity.on('init', (user) => {
+            setUser(user)
+            setAuthReady(true)
+            console.log('Init event');
         })
 
         netflifyIdentity.init()
@@ -35,10 +42,10 @@ export const AuthContextProvider = ({ children }) => {
         netflifyIdentity.open()
     }
 
-    const logout = () => 
-    netflifyIdentity.logout()
+    const logout = () =>
+        netflifyIdentity.logout()
 
-    const context = { user, login, logout }
+    const context = { user, login, logout, authReady }
 
     return (
         <AuthContext.Provider value={context}>
