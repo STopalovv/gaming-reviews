@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import AuthContext from '../stores/authContext'
 import styles from '../styles/Guides.module.css'
@@ -44,14 +45,10 @@ export default function Guides() {
 
       {reviews && reviews.map(review => (
         <div key={review.title} className={styles.card}>
-           <h3>{review.title}</h3>
-           <h4>Main character: {review.character}</h4>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent justo mauris, congue vitae consectetur quis, 
-            ullamcorper finibus libero. Nam a congue est. Sed lobortis, sapien a ultricies venenatis, orci turpis cursus urna, 
-            sed accumsan augue nulla cursus magna. Pellentesque volutpat felis ac lorem cursus, ac semper sapien bibendum. 
-            Sed ac risus eget ligula suscipit luctus eu eu mauris. Etiam laoreet dapibus velit. Aliquam dapibus leo libero, ac 
-            rhoncus lectus consectetur at. Vestibulum finibus ultricies libero vel tempus. Aenean auctor lacinia libero, id convallis 
-            massa gravida ut. Etiam quis vehicula sapien. Nunc et ullamcorper tortor, ut rutrum lorem.</p>
+          <h3>{review.title}</h3>
+          <h4>Main character: {review.character}</h4>
+          <p>{review.content}</p>
+          <Link href={review.title}><a>Test</a></Link>
         </div>
       ))}
     </div>
