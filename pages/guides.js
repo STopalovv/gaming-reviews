@@ -44,12 +44,13 @@ export default function Guides() {
       )}
 
       {reviews && reviews.map(review => (
-        <div key={review.title} className={styles.card}>
-          <h3>{review.title}</h3>
-          <h4>Main character: {review.character}</h4>
-          <p>{review.content}</p>
-          <Link href={review.title}><a>Test</a></Link>
-        </div>
+          <Link href={review.title}>
+            <div key={review.title} className={styles.card}>
+              <h3>{review.title}</h3>
+              <h4>Main character: {review.character}</h4>
+              <p>{review.content}</p>
+            </div>
+          </Link>
       ))}
     </div>
   )
