@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/Guides.module.css'
+import styles from '../../styles/Guides.module.css'
 
 const reviews = [
   { id: 1, title: "Assassin's Creed", character: "Altaïr Ibn-La'Ahad", content: "The original Assassin that spawned the franchise and no doubt one of the greatest and strongest assassins to carry the hidden blade was Altair. Altair shaped the course of history for centuries to come and is one of the few to stand against both the Brotherhood and the Templars." },
