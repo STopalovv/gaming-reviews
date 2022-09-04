@@ -1,3 +1,6 @@
+import Link from 'next/link'
+import styles from '../styles/Guides.module.css'
+
 const reviews = [
   { id: 1, title: "Assassin's Creed", character: "Altaïr Ibn-La'Ahad", content: "The original Assassin that spawned the franchise and no doubt one of the greatest and strongest assassins to carry the hidden blade was Altair. Altair shaped the course of history for centuries to come and is one of the few to stand against both the Brotherhood and the Templars." },
   { id: 2, title: "Assassin's Creed II", character: "Ezio Auditore de Firenze", content: "Ezio Auditore served as the protagonist of Assassin's Creed 2 but would also appear in the next two installments of the franchise: Assassin's Creed Brotherhood and Assassin's Creed Revelations. Ezio is perhaps the most dedicated and noteworthy assassin to date, having shaped the path for what the Brotherhood of Assassins eventually became" },
@@ -36,12 +39,13 @@ export async function getStaticProps(context) {
   }
 }
 
-function Review({review}) {
+function Review({ review }) {
   return (
-    <div>
+    <div className={styles.card}>
       <h2>{review.title}</h2>
       <h4>{review.character}</h4>
       <p>{review.content}</p>
+      <Link href={'/guides'}><a>Go back</a></Link>
     </div>
   )
 }
