@@ -159,7 +159,7 @@ function Review({ review }) {
             <Image src={review.secondImage} height={380} width={550} className={styles.image} />
             <p className={styles.content}>{review.thirdContent}</p>
             <br />
-            <Link href={`/`}><a class={styles.link}>Home</a></Link>
+            <Link href={`/guides`}><a class={styles.link}>Home</a></Link>
         </div>
   )
 }
