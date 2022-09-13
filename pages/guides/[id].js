@@ -150,7 +150,7 @@ export async function getStaticProps(context) {
 
 function Review({ review }) {
   return (
-    <div className={styles.guide}>
+    <div className={styles.guides}>
             <h1 className={styles.title}>{review.title}</h1>
             <h3 className={styles.character}>{review.character}</h3>
             <p className={styles.content}>{review.firstContent}</p>
