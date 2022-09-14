@@ -3,7 +3,7 @@ import styles from '../../styles/Guides.module.css'
 import Image from 'next/image'
 
 export async function getStaticPaths() {
-  const response = await fetch('/guides')
+  const response = await fetch('http://localhost:3001/guides')
   const data = await response.json()
   const paths = data.map(review => {
     return {
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const id = context.params.id
-  const response = await fetch("/guides" + id)
+  const response = await fetch("http://localhost:3001/guides" + id)
   const data = await response.json()
   return {
     props: {
